@@ -20,11 +20,5 @@ class tcp_sender:
 		TCP_CONFIG.flags = 'S'
 		raw = Raw(b"X"*6000)
 		p = IP_CONFIG / TCP_CONFIG / raw
-		res = os.system('ping -c 1 ' + self.ip)
 		send(p, verbose=3)
-		time.sleep(2)
-		if res == 0:
-			Debug('[+] Is down')
-		else:
-			Debug('[-] Is up')
-		
+		Debug('[+] Sent sucessfuly', verbose=True)
