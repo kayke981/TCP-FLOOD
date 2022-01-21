@@ -17,7 +17,7 @@ class Attack:
 			# host = socket.gethostbyname(self.ip)
 			# scanner.scan(host)
 			# status = scanner[host].state().replace('up', f'{colors.reset}{colors.green}ONLINE{colors.reset}').replace('down', f'{colors.reset}{colors.red}OFFLINE{colors.reset}')
-			# Debug(f'[*] {total} packages have been sent {colors.reset}[{status}]', verbose=True)
+			Debug(f'[*] Packets have been sent sucessfuly', verbose=True)
 		Debug(f'[+] Sent {total} packets', verbose=True)
 
 
