@@ -1,2 +1,2 @@
 scapy
-nmap
+python-nmap
