@@ -1,6 +1,7 @@
-from scapy.all import IP, TCP, send
+from scapy.all import IP, TCP, send, Raw
 from random import randint
 from lib.util.debug import Debug
+import nmap, socket, time
 class tcp_sender:
 	def __init__(self, ip, port):
 		self.ip = ip
@@ -17,9 +18,11 @@ class tcp_sender:
 		TCP_CONFIG.sport = randint(0,9000)
 		TCP_CONFIG.dport = self.port
 		TCP_CONFIG.flags = 'S'
-		TCP_CONFIG.windown = self.w
-		TCP_CONFIG.seq = self.s
-		p = IP_CONFIG / TCP_CONFIG
-		Debug("[*] Preparing to send packets...", verbose=True)
-		Debug(f"[*] TCP: {p}", verbose=True)
+		raw = Raw(b"X"*6000)
+		p = IP_CONFIG / TCP_CONFIG / raw
+		scanner = nmap.PortScanner()
+		host = socket.gethostbyname(self.ip)
+		scanner.scan(host)
 		send(p, verbose=3)
+		time.sleep(2)
+		Debug(f'[*] Status: {scanner[host].state()}', verbose=True)
