@@ -8,6 +8,7 @@ class tcp_sender:
 		self.ranip = ".".join(str(randint(0,255) for x in range(4)))
 		self.w = randint(0,9000)
 		self.s = randint(0,9000)
+		self.send()
 
 	def send(self):
 		IP_CONFIG = IP ()
