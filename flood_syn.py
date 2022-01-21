@@ -9,7 +9,7 @@ def parser_args():
 	parser.add_argument('-c', '--count', type=int, help='Count of packets')
 	parser.add_argument('-t', '--target', type=str, help="Target's IP")
 	parser.add_argument('-p', '--port', type=int, help="Port of target")
-	parser.add_agument('--check', type=str, help='Check if host is up')
+	parser.add_argument('--check', type=str, help='Check if host is up')
 	return parser
 
 def menu():
