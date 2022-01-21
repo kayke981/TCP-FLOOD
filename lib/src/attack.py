@@ -15,7 +15,6 @@ class Attack:
 			scanner = nmap.PortScanner()
 			host = socket.gethostbyname(self.ip)
 			scanner.scan(host)
-			time.sleep(2)
 			status = scanner[host].state().replace('up', f'{colors.reset}{colors.green}ONLINE{colors.reset}').replace('down', f'{colors.reset}{colors.red}OFFLINE{colors.reset}')
 			Debug(f'[*] {total} packages have been sent [{status}]', verbose=True)
 		Debug(f'[+] Sent {total} packets', verbose=True)

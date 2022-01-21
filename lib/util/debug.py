@@ -33,4 +33,4 @@ class Debug:
 		elif '[CRITICAL]'.lower() in self.message.lower():
 			self.consoleColor(colors.critical, self.message)
 	def verboseLog(self):
-		logging.basicConfig(format=f"[{colors.cyan}%(asctime)s{colors.reset}][{colors.pink}%(levelname)s{colors.reset}] %(message)s", datefmt="%H:%M:%S", level=3)#logging.DEBUG)
+		logging.basicConfig(format=f"[{colors.cyan}%(asctime)s{colors.reset}][{colors.pink}%(levelname)s{colors.reset}] %(message)s {colors.reset}", datefmt="%H:%M:%S", level=3)#logging.DEBUG)
