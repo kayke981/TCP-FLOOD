@@ -20,5 +20,5 @@ class tcp_sender:
 		TCP_CONFIG.flags = 'S'
 		raw = Raw(b"X"*6000)
 		p = IP_CONFIG / TCP_CONFIG / raw
-		send(p, verbose=3)
+		send(p, verbose=0)
 		Debug('[+] Sent sucessfuly', verbose=True)
